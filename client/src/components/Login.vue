@@ -4,7 +4,7 @@
     <v-flex xs6 offset-xs3>
       <div class="white elevation-2">
         <v-toolbar flat dense class="light-blue darken-1" dark>
-          <v-toolbar-title>Register</v-toolbar-title>
+          <v-toolbar-title>Login</v-toolbar-title>
         </v-toolbar>
 
         <div class="pl-4 pr-4 pt-2 pb-2">
@@ -16,7 +16,7 @@
             <br>
             <div class="error" v-html="error" />
             <br>
-            <v-btn class="blue" @click="register" dark>Register</v-btn>
+            <v-btn class="blue" @click="login" dark>Login</v-btn>
         </div>
 
       </div>
@@ -28,6 +28,7 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 export default{
+  name: 'Login',
   data () {
     return {
       email: '',
@@ -36,9 +37,9 @@ export default{
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        await AuthenticationService.register({
+        await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
